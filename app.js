@@ -140,7 +140,7 @@ app.post('/login', async (req, res) => {
                 error = 'Неверный логин или пароль.';
             }
         } catch (fileErr) {
-            error = 'Файл с пользователями не найден.';
+            error = 'пользователь не найден.';
         }
     } catch (err) {
         console.error('Ошибка при входе:', err);
@@ -200,7 +200,7 @@ app.post('/delete-user', async (req, res) => {
             }
 
             if (!found) {
-                error = `Пользователь с email ${trimmedEmail} не найден.`;
+                error = `Пользователь не найден.`;
             }
         }
     } catch (err) {
