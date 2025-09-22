@@ -1,313 +1,111 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soundy - Главная</title>
-    <style>
-        body {
-            background: #121212;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff5500;
-            text-shadow: 0 0 10px rgba(255, 85, 0, 0.3);
-        }
-        
-        .nav-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .nav-btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 6px;
-            background-color: rgba(255, 85, 0, 0.8);
-            color: white;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .nav-btn:hover {
-            background-color: #ff3300;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 85, 0, 0.4);
-        }
-        
-        .main-content {
-            margin-top: 80px;
-            padding: 50px 30px;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .hero-section {
-            max-width: 800px;
-            margin: 0 auto 50px;
-        }
-        
-        .hero-title {
-            font-size: 48px;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #ff5500, #ff8800);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(255, 85, 0, 0.3);
-        }
-        
-        .hero-subtitle {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .feature-card {
-            background: rgba(30, 30, 30, 0.8);
-            padding: 30px;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 85, 0, 0.2);
-            border-color: rgba(255, 85, 0, 0.3);
-        }
-        
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #ff5500;
-        }
-        
-        .feature-title {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-        
-        .feature-description {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.5;
-        }
-        
-        /* Анимированный фон */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 32px;
-            }
-            
-            .header {
-                padding: 15px 20px;
-            }
-            
-            .nav-buttons {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            
-            .main-content {
-                padding: 50px 20px;
-            }
-        }
-    </style>
+    <title>soundy</title>
+    <link rel="stylesheet" href="./styles/style.css ">
 </head>
+
 <body>
     <!-- Анимированный фон -->
     <canvas class="animated-bg" id="animatedBg"></canvas>
-    
-    <header class="header">
-        <div class="logo">Soundy</div>
-        <div class="nav-buttons">
-            <a href="/login" class="nav-btn">Войти</a>
-            <a href="/register" class="nav-btn">Регистрация</a>
-            <a href="/delete-user" class="nav-btn">Удалить пользователя</a>
-        </div>
-    </header>
-    
-    <main class="main-content">
-        <div class="hero-section">
-            <h1 class="hero-title">Добро пожаловать в Soundy</h1>
-            <p class="hero-subtitle">
-                Современная система управления пользователями с красивым интерфейсом 
-                и анимированным фоном. Регистрируйтесь, входите в систему и управляйте аккаунтами.
-            </p>
-        </div>
-        
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">👤</div>
-                <h3 class="feature-title">Регистрация</h3>
-                <p class="feature-description">
-                    Простая и быстрая регистрация новых пользователей с проверкой email и уникальности логина.
-                </p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🔐</div>
-                <h3 class="feature-title">Вход в систему</h3>
-                <p class="feature-description">
-                    Безопасная авторизация пользователей с использованием сессий и проверкой данных.
-                </p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🗑️</div>
-                <h3 class="feature-title">Управление</h3>
-                <p class="feature-description">
-                    Возможность удаления пользователей по email адресу для администраторов системы.
-                </p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h3 class="feature-title">Современный дизайн</h3>
-                <p class="feature-description">
-                    Красивый интерфейс с анимированным фоном и интерактивными элементами.
-                </p>
-            </div>
-        </div>
-    </main>
 
-    <script>
-        // Настройка анимированного фона
-        const canvas = document.getElementById('animatedBg');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        // Массив для хранения частиц
-        const particles = [];
-        const particleCount = 80;
-        const connectionDistance = 120;
-        
-        // Класс частицы
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 1.5;
-                this.vy = (Math.random() - 0.5) * 1.5;
-                this.size = Math.random() * 2 + 1;
-                this.opacity = Math.random() * 0.3 + 0.2;
-            }
-            
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                
-                // Отражение от границ
-                if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
-                if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
-            }
-            
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 85, 0, ${this.opacity})`;
-                ctx.fill();
-            }
-        }
-        
-        // Создание частиц
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-        
-        // Функция для рисования линий между близкими частицами
-        function drawConnections() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < connectionDistance) {
-                        const opacity = (1 - distance / connectionDistance) * 0.2;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(255, 85, 0, ${opacity})`;
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-        
-        // Главный цикл анимации
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Обновление и рисование частиц
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            
-            // Рисование соединений
-            drawConnections();
-            
-            requestAnimationFrame(animate);
-        }
-        
-        // Обработка изменения размера окна
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-        
-        // Запуск анимации
-        animate();
-    </script>
+    <!-- Заголовок -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="wave-logo">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск треков, исполнителей...">
+            </div>
+            <div class="user-menu">
+                <div class="user-avatar">U</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="container">
+        <!-- Плеер -->
+        <div class="player-section">
+            <div class="now-playing">
+                <div class="track-cover" id="trackCover">
+                    <img src="./assets/covers/default.jpg" alt="cover" />
+                </div>
+                <div class="track-info">
+                    <h3 id="currentTrack">музыка</h3>
+                    <p id="currentArtist">Неизвестный исполнитель</p>
+                </div>
+            </div>
+
+            <!-- Волновая визуализация -->
+            <div class="waveform" id="waveform">
+                <div class="wave-container" id="waveContainer"></div>
+                <div class="progress-line" id="progressLine"></div>
+            </div>
+
+            <!-- Контролы -->
+            <div class="player-controls">
+                <button class="control-btn" id="prevBtn">⏮</button>
+                <button class="control-btn play-btn" id="playBtn">▶</button>
+                <button class="control-btn" id="nextBtn">⏭</button>
+                <div class="volume-control">
+                    <span></span>
+                    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
+                </div>
+            </div>
+
+            <div style="text-align: center; color: #888; font-size: 12px;">
+                <span id="currentTime">0:00</span> / <span id="totalTime">3:45</span>
+            </div>
+        </div>
+
+        <!-- Список треков -->
+        <div class="tracks-section">
+            <h2 class="section-title">Популярные треки</h2>
+            <div id="tracksList"></div>
+        </div>
+    </div>
+
+    <div class="soundbar">
+        <div class="progress"></div>
+        <div class="soundbar-content">
+            <!-- Левая часть -->
+            <div class="track-info">
+                <div class="cover"></div>
+                <div class="text">
+                    <h4>Название трека</h4>
+                    <p>Исполнитель</p>
+                </div>
+            </div>
+
+            <!-- Центр (управление) -->
+            <div class="controls">
+                <button>⏮</button>
+                <button>▶</button>
+                <button>⏭</button>
+            </div>
+
+            <!-- Правая часть -->
+            <div class="right-section">
+                <input type="range" min="0" max="100" value="70" class="volume">
+            </div>
+        </div>
+    </div>
+
+
 </body>
+
 </html>
