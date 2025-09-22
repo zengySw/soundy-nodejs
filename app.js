@@ -18,7 +18,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Настройка сессий
 app.use(session({
-    secret: 'your-secret-key', // Замените на свой секретный ключ
+    secret: 'fghijklmnopqrsHIJKLMYZ01234', // Замените на свой секретный ключ
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false } // Для HTTPS установите в true
@@ -90,7 +90,7 @@ app.post('/register', async (req, res) => {
                 await ensureDirectoryExists(DATA_DIR);
                 await fs.writeFile(jsonFile, JSON.stringify(userData, null, 2), 'utf8');
                 
-                success = `Регистрация успешна! ID пользователя: ${id}. Файл создан: ${jsonFile}`;
+                success = `Регистрация успешна!`;
             }
         }
     } catch (err) {
